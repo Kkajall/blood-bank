@@ -1,0 +1,39 @@
+<div>
+    
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <h3>Login</h3>
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="email" class="form-control" name="email" #email="ngModel" required ngModel id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div class="text-danger" *ngIf="email.touched && email.invalid">Username is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" ngModel #password="ngModel" required id="exampleInputPassword1">
+          <div class="text-danger" *ngIf="password.touched && password.invalid">Password is required</div>
+        </div>
+        <div class="m-1" style="text-align: right;">
+            <a routerLink="/signup">New User? Sign Up</a>
+        </div>
+        <button type="submit" class="btn btn-success" >Submit</button>
+      </form>
+    <!-- <form>
+        <mat-form-field style="background-color: white;">
+            <mat-label>Username</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <button class="btn btn-success">
+            Submit
+        </button>
+    </form> -->
+</div>

@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" >
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <a  routerLink="/">About Us</a>
+    <a routerLink="getblood">Looking For Blood</a>
+    <a routerLink="signup">Sign Up</a>
+    <a routerLink="donateblood" *ngIf="(isLoggedIn$ | async)" >Donate Blood</a> 
+    <a routerLink="login" *ngIf="!(isLoggedIn$ | async)"> Login</a>
+    <a routerLink="home" *ngIf="(isLoggedIn$ | async)"> Home</a>
+
+    <button class="btn btn-danger" (click)="logout()" *ngIf="(isLoggedIn$ | async)">Logout</button>
+    <!-- <a routerLink="login" *ngIf="(isLoggedIn$ | async)"> Logout</a> -->
+</mat-toolbar>

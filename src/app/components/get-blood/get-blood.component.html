@@ -1,0 +1,60 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h3>Get Blood</h3>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+    <hr>
+    <div class="mb-3">
+      <label for="bloodgroup" class="form-label">Blood group</label>
+      <!-- <input type="text" class="form-control" name="email" ngModel id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+      <select name="bloodgroup" id="bloodgroup" #bloodgroup="ngModel" required ngModel>
+        <option value="A+">A+</option>
+        <option value="B+">B+</option>
+        <option value="AB+">AB+</option>
+        <option value="A-">A-</option>
+        <option value="B-">B-</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+
+      </select>
+      <!-- <div *ngIf="bloodgroup.touched && bloodgroup.errors.hasOwnProperty('required')" class="text-danger">
+        Select blood group
+      </div> -->
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" name="location" ngModel required #location="ngModel" id="location">
+      <!-- <div *ngIf="location.touched && location.errors?.hasOwnProperty('required')" class="text-danger">
+        Enter location
+      </div> -->
+    </div>
+    
+    <button type="submit" class="btn btn-success" >Submit</button>
+  </form>
+
+  
+
+    <h2 *ngIf="!(hospitalBloodDetails.length > 0)" style="text-align:center; margin-top: 20px">No Records Found</h2>
+    <table class="table table-striped" *ngIf="hospitalBloodDetails.length > 0">
+        <thead>
+            <tr>
+                <th scope="col">Hospital Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">BloodGroup</th>
+                <th scope="col">Quantity</th>
+                <!-- <th scope="col">Expiry Date</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let hospitalBloodDetail of hospitalBloodDetails">
+                <td>{{ hospitalBloodDetail.hospitalName }}</td>
+                <td>{{ hospitalBloodDetail.address }}</td>
+                <td>{{ hospitalBloodDetail.mobilenum }}</td>
+                <td>{{ hospitalBloodDetail.bloodgroup }}</td>
+                <td>{{ hospitalBloodDetail.quantity }}</td>
+                <!-- <td>{{ hospitalBloodDetail.expirtyDate }}</td> -->
+            </tr>
+        </tbody>
+    </table>

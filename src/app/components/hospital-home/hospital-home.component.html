@@ -1,0 +1,63 @@
+<div>
+    <div class="row col-5">
+        <h2>Your Blood Donation Camps</h2>
+        <div class="customcard">
+            <hr>
+            <div *ngIf="!hospital?.BDcamp?.length">You haven't organized any blood donation camp</div>
+            <table class="table table-striped" *ngIf="hospital?.BDcamp?.length">
+                <thead>
+                    <tr>
+                        <th>Camp Name</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Mobile Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bdcamp of hospital.BDcamp">
+                        <td>{{bdcamp.campName}}</td>
+                        <td>{{bdcamp.address}}</td>
+                        <td>{{bdcamp.date}}</td>
+                        <td>{{bdcamp.time}}</td>
+                        <td>{{bdcamp.mobileNum}}</td>
+                        <td><button class="btn btn-primary" (click)="viewDonors(bdcamp.bdId)">View Donors</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-5">
+        <h2>Registered Users</h2>
+        <table class="table table-striped" *ngIf="userList?.length>0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Mobile Number</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.mobileNo}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.bloodgroup}}</td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+        
+
+    </div>
+
+</div>

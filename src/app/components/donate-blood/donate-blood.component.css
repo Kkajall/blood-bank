@@ -1,0 +1,37 @@
+form {
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 12px;
+
+    
+
+}
+
+table{
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(193, 193, 193);
+}
+
+.customMessage{
+    width: 300px;
+    position: absolute;
+    right: 30px; 
+    top: 70px;
+    transition: ease-in;
+    transition: ease-out;
+    animation-name: ease;
+    animation-duration: 3s;
+}
+
+@keyframes ease {
+    0%   {right: -500px}
+  25%  {right: 20px}
+  50%  {right: 20px}
+  100% {right: -500px}
+}

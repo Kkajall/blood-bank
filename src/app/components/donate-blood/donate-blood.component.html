@@ -1,0 +1,71 @@
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h3>Donate Blood</h3>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+    <hr>
+    <div class="mb-3">
+      <label for="bloodgroup" class="form-label">Blood group</label>
+      <select name="bloodgroup" id="bloodgroup" ngModel #bloodgroup="ngModel" required>
+        <option value="A+">A+</option>
+        <option value="B+">B+</option>
+        <option value="AB+">AB+</option>
+        <option value="A-">A-</option>
+        <option value="B-">B-</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+
+      </select>
+      <div *ngIf="bloodgroup.touched && bloodgroup.errors.hasOwnProperty('required')" class="text-danger">
+        Select blood group
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantity</label>
+      <input type="number" class="form-control" name="quantity" ngModel id="quantity" required #quantity="ngModel">
+      <div *ngIf="quantity.touched && quantity.errors.hasOwnProperty('required')" class="text-danger">
+        Enter quantity
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-success" >Submit</button>
+  </form> -->
+  <div class="customMessage alert alert-success" *ngIf="successMessage">
+    {{successMessage}}
+  </div>
+  <form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+      <label class="form-label">Enter Location</label>
+      <input type="text" class="form-control" id="location" name="location" ngModel #location="ngModel" required>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Submit</button>
+  </form>
+
+  
+  <h2 *ngIf="!(bdcamps.length > 0)">No Blood Camps found</h2>
+  <table class="table table-striped" *ngIf="bdcamps.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Camp Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bdcamp of bdcamps">
+        <td>{{ bdcamp.campName }}</td>
+        <td>{{ bdcamp.address }}</td>
+        <td>{{ bdcamp.date }}</td>
+        <td>{{ bdcamp.time }}</td>
+        <td>{{ bdcamp.mobileNum }}</td>
+        <td><button class="btn btn-primary" (click)="onBookAppointment(bdcamp)">Book Appointment</button></td>
+        <td *ngIf=""><button class="btn btn-success disabled" [disabled]="true" (click)="onBookAppointment(bdcamp)">Booked</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+ 

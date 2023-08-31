@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 customcard">
+            <h3>Your Appointments</h3>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Camp Name</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bdcamp of user.bdcamp">
+                        <td>{{bdcamp.campName}}</td>
+                        <td>{{bdcamp.address}}</td>
+                        <td>{{bdcamp.date}}</td>
+                        <td>{{bdcamp.time}}</td>
+                        <td>{{bdcamp.mobileNum}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4 customcard">
+            <h3>Your Profile</h3>
+            <hr>
+            <div *ngIf="user">
+                <div>
+                    <p>Username</p>
+                    <p>{{user.email}}</p>
+                </div>
+                <div>
+                    <p>Name</p>
+                    <p>{{user.name}}</p>
+                </div>
+                <div>
+                    <p>Mobile Number</p>
+                    <p>{{user.mobileNo}}</p>
+                </div>
+                <div>
+                    <p>Gender</p>
+                    <p>{{user.gender}}</p>
+                </div>
+                <div>
+                    <p>Address</p>
+                    <p>{{user.address}}</p>
+                </div>
+                <div>
+                    <p>Date of Birth</p>
+                    <p>{{user.dob}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

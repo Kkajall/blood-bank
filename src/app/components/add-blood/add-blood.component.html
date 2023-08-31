@@ -1,0 +1,24 @@
+
+<app-admin-header></app-admin-header>
+<div>
+    <form class="form" #f="ngForm" (ngSubmit)="onSubmit(f)"> 
+        <div class="form-group">
+          <label class="form-label">Enter Hospital Name</label>
+          <input type="text" class="form-control" id="hospitalname" name="hospitalname" ngModel #hospitalname="ngModel" required>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Enter Blood Group</label>
+            <input type="text" class="form-control" id="bgroup" name="bgroup" ngModel #bgroup="ngModel" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter Quantity</label>
+            <input type="text" class="form-control" id="quantity" name="quantity" ngModel #quantity="ngModel" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Enter Expiry Date</label>
+            <input type="text" class="form-control" id="edate" name="edate" ngModel #edate="ngModel" required>
+          </div>
+      <div class="alert alert-success successMessage" *ngIf="successMessage.length> 0">{{successMessage}}</div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update</button>
+    </form>
+</div>

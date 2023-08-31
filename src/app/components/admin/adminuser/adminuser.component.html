@@ -1,0 +1,29 @@
+
+<app-admin-header></app-admin-header>
+<div class="container">
+    <div class="row">
+        <h3>All Users Details</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Mobile Number</th>
+                    <th>Blood Group</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of user">
+                    <td>{{user.name}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.mobileNo}}</td>
+                    <td>{{user.bloodgroup}}</td>
+                    <td>{{user.dob}}</td>
+                    <td>{{user.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
